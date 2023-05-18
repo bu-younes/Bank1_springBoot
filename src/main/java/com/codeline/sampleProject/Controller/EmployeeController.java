@@ -53,7 +53,6 @@ public class EmployeeController {
 //update
 /*
    @RequestMapping(value = "employee/update/{Id}", method = RequestMethod.PUT)
-   public GetEmployeeResponse updateEmployee(@PathVariable Long employeeId, @RequestBody Employee updatedEmployee) {
 
 
 
