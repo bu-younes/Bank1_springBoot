@@ -57,7 +57,6 @@ public class EmployeeService {
             employee.setDepartment(updatedEmployee.getDepartment());
             employee.setSalary(updatedEmployee.getSalary());
             employeeRepository.save(employee);
-            GetEmployeeResponse employeeResponse = new GetEmployeeResponse(employee.getName(), employee.getGender(), employee.getDepartment(), employee.getSalary());
 
 
     }*/
