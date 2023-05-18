@@ -56,7 +56,6 @@ public class EmployeeService {
             employee.setGender(updatedEmployee.getGender());
             employee.setDepartment(updatedEmployee.getDepartment());
             employee.setSalary(updatedEmployee.getSalary());
-            employeeRepository.save(employee);
 
 
     }*/
