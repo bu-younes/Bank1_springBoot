@@ -53,7 +53,6 @@ public class EmployeeService {
         if (optionalEmployee.isPresent()) {
             Employee employee = optionalEmployee.get();
             employee.setName(updatedEmployee.getName());
-            employee.setGender(updatedEmployee.getGender());
 
 
     }*/
