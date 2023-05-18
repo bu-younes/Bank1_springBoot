@@ -76,8 +76,7 @@ public class EmployeeService {
         employee.setDepartment(c);
         employee.setSalary(d);
         ObjectMapper mapper = new ObjectMapper();
-        String s = mapper.writeValueAsString(employeeService.getEmployeeAsString(employee));
-        System.out.print(s);
+
 */
 
 
