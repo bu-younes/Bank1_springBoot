@@ -52,7 +52,6 @@ public class EmployeeService {
         Optional<Employee> optionalEmployee = employeeRepository.findById(employeeId);
         if (optionalEmployee.isPresent()) {
             Employee employee = optionalEmployee.get();
-            employee.setName(updatedEmployee.getName());
 
 
     }*/
