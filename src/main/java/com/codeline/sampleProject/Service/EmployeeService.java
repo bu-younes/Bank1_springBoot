@@ -74,7 +74,6 @@ public class EmployeeService {
         employee.setName(a);
         employee.setGender(b);
         employee.setDepartment(c);
-        employee.setSalary(d);
 
 
 */
