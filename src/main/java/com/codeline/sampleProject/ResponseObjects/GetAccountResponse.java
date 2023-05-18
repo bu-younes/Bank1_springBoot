@@ -14,5 +14,6 @@ public class GetAccountResponse {
     String bankName;
 
 
-
+    public GetAccountResponse(String bankName, String accountNumber, String bankBranch, String swiftCode) {
+    }
 }

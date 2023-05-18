@@ -12,9 +12,11 @@ public class GetEmployeeResponse {
 
     String name;
     String Gender;
-
     String department;
     Double salary;
+
+    public GetEmployeeResponse(String name, String Gender, String department, String salary) {
+    }
 }
 
 

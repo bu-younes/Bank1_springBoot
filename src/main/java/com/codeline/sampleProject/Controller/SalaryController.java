@@ -2,14 +2,12 @@ package com.codeline.sampleProject.Controller;
 
 import com.codeline.sampleProject.Models.Salary;
 import com.codeline.sampleProject.RequestObjects.GetEmployeeProject.GetSalaryRequestObject;
-import com.codeline.sampleProject.ResponseObjects.GetEmployeeResponse;
 import com.codeline.sampleProject.ResponseObjects.GetSalaryResponse;
 import com.codeline.sampleProject.Service.SalaryService;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
 import java.util.List;
@@ -35,6 +33,30 @@ public class SalaryController {
         return salaryService.getSalaryById(salaryId);
 
     }
+
+    @RequestMapping("salary/delete/{Id}")
+    public void deletesalary (@PathVariable Long Id) {
+        salaryService.deleteSalaryById(Id);
+    }
+
+
+
+    @GetMapping("salary/quer")
+    @ResponseBody
+    public String getsalaryQueryString(@RequestParam Double a, @RequestParam Double b, @RequestParam Double c, @RequestParam Double d) throws JsonProcessingException {
+        Salary salary = new Salary();
+        salary.setHealthCareContribution(a);
+        salary.setAllowances(b);
+        salary.setBonus(c);
+        salary.setPerDiem(d);
+        ObjectMapper mapper = new ObjectMapper();
+        String s = mapper.writeValueAsString(salaryService.getSalaryAsString(salary));
+        System.out.print(s);
+        return s;
+    }
+
+
+
     public void createSalary(GetSalaryRequestObject salaryRequestObject) {
 
 

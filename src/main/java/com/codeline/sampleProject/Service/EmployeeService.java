@@ -1,7 +1,10 @@
 package com.codeline.sampleProject.Service;
 
+import com.codeline.sampleProject.Models.Account;
 import com.codeline.sampleProject.Models.Employee;
 import com.codeline.sampleProject.Repository.EmployeeRepository;
+import com.codeline.sampleProject.RequestObjects.GetEmployeeProject.GetEmployeeRequestObject;
+import com.codeline.sampleProject.ResponseObjects.GetAccountResponse;
 import com.codeline.sampleProject.ResponseObjects.GetEmployeeResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -35,5 +38,44 @@ public class EmployeeService {
         return null;
 
     }
+
+    public void deleteEmployeeById(Long employeeId) {
+        employeeRepository.deleteById(employeeId);
+    }
+
+
+
+
+
+
+/*
+    public GetEmployeeResponse updateEmployee(Long employeeId, Employee updatedEmployee) {
+        Optional<Employee> optionalEmployee = employeeRepository.findById(employeeId);
+        if (optionalEmployee.isPresent()) {
+            Employee employee = optionalEmployee.get();
+            employee.setName(updatedEmployee.getName());
+            employee.setGender(updatedEmployee.getGender());
+            employee.setDepartment(updatedEmployee.getDepartment());
+            employee.setSalary(updatedEmployee.getSalary());
+            employeeRepository.save(employee);
+            GetEmployeeResponse employeeResponse = new GetEmployeeResponse(employee.getName(), employee.getGender(), employee.getDepartment(), employee.getSalary());
+            return employeeResponse;
+        }
+
+        return null;
+    }*/
+
+
+
+
+
+    public GetEmployeeResponse getEmployeeAsString(Employee employee) {
+        GetEmployeeResponse employeeResponse= new GetEmployeeResponse(employee.getName(), employee.getGender(), employee.getDepartment(), employee.getSalary()) ;
+        return employeeResponse;
+    }
+
+
+
+
 
 }

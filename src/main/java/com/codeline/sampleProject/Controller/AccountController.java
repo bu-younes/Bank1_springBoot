@@ -8,11 +8,10 @@ import com.codeline.sampleProject.ResponseObjects.GetAccountResponse;
 import com.codeline.sampleProject.ResponseObjects.GetEmployeeResponse;
 import com.codeline.sampleProject.Service.AccountService;
 import com.codeline.sampleProject.Service.EmployeeService;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
 import java.util.List;
@@ -40,6 +39,25 @@ public class AccountController {
         return accountService.getAccountById(accountId);
 
     }
+
+    @RequestMapping("account/delete/{Id}")
+    public void deleteaccount(@PathVariable Long Id) {
+        accountService.deleteAccountById(Id);
+    }
+
+
+    @GetMapping("account/quer")
+    @ResponseBody
+    public String getaccountQueryString(@RequestParam String a) throws JsonProcessingException {
+        Account accountt = new Account();
+        accountt.setBankName(a);
+        ObjectMapper mapper = new ObjectMapper();
+        String s = mapper.writeValueAsString(accountService.getAccountAsString(accountt));
+        System.out.print(s);
+        return s;
+    }
+
+
 
     public void createAccount(GetAccountRequestObject accountRequestObject) {
 

@@ -4,11 +4,10 @@ import com.codeline.sampleProject.Models.Employee;
 import com.codeline.sampleProject.RequestObjects.GetEmployeeProject.GetEmployeeRequestObject;
 import com.codeline.sampleProject.ResponseObjects.GetEmployeeResponse;
 import com.codeline.sampleProject.Service.EmployeeService;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
 import java.util.List;
@@ -40,6 +39,46 @@ public class EmployeeController {
 
       }
 
+    @RequestMapping("employee/delete/{Id}")
+    public void deleteeemployee (@PathVariable Long Id) {
+        employeeService.deleteEmployeeById(Id);
+    }
+
+
+
+
+
+
+
+//update
+/*
+   @RequestMapping(value = "employee/update/{Id}", method = RequestMethod.PUT)
+   public GetEmployeeResponse updateEmployee(@PathVariable Long employeeId, @RequestBody Employee updatedEmployee) {
+       return employeeService.updateEmployee(employeeId, updatedEmployee);
+    }
+
+*/
+
+
+
+
+
+
+
+
+    @GetMapping("employee/quer")
+    @ResponseBody
+    public String getemployeeQueryString(@RequestParam String a,@RequestParam String b,@RequestParam String c,@RequestParam Double d) throws JsonProcessingException {
+        Employee employee = new Employee();
+        employee.setName(a);
+        employee.setGender(b);
+        employee.setDepartment(c);
+        employee.setSalary(d);
+        ObjectMapper mapper = new ObjectMapper();
+        String s = mapper.writeValueAsString(employeeService.getEmployeeAsString(employee));
+        System.out.print(s);
+        return s;
+    }
 
     public void createEmployee(GetEmployeeRequestObject employeeRequestObject) {
 

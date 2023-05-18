@@ -27,7 +27,6 @@ public class SalaryService {
         return salaryRepository.findAll();
     }
 
-
     public GetSalaryResponse getSalaryById(Long salaryId) {
         Optional<Salary> optionalSalary =  salaryRepository.findById(salaryId);
         if(!optionalSalary.isEmpty())
@@ -40,5 +39,14 @@ public class SalaryService {
         return null;
 
     }
+    public void deleteSalaryById(Long salaryId) {
+        salaryRepository.deleteById(salaryId);
+    }
+
+    public GetSalaryResponse getSalaryAsString(Salary salary) {
+        GetSalaryResponse salaryResponse= new GetSalaryResponse(salary.getHealthCareContribution(), salary.getAllowances(), salary.getBonus(), salary.getPerDiem()) ;
+        return salaryResponse;
+    }
+
 
 }

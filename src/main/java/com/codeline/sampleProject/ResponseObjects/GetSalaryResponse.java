@@ -18,4 +18,7 @@ public class GetSalaryResponse {
     Double bonus;
 
     Double perDiem;
+
+    public GetSalaryResponse(String healthCareContribution, String allowances, String bonus, String perDiem) {
+    }
 }
