@@ -78,10 +78,7 @@ public class EmployeeService {
         ObjectMapper mapper = new ObjectMapper();
         String s = mapper.writeValueAsString(employeeService.getEmployeeAsString(employee));
         System.out.print(s);
-        return s;
-    }
-
-
+*/
 
 
 }
