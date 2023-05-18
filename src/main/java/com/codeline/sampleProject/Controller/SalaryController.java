@@ -42,9 +42,6 @@ public class SalaryController {
 
 
 
-
-
-
     public void createSalary(GetSalaryRequestObject salaryRequestObject) {
 
 
