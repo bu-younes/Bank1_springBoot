@@ -50,7 +50,6 @@ public class EmployeeService {
 /*
     public GetEmployeeResponse updateEmployee(Long employeeId, Employee updatedEmployee) {
         Optional<Employee> optionalEmployee = employeeRepository.findById(employeeId);
-        if (optionalEmployee.isPresent()) {
 
 
     }*/
