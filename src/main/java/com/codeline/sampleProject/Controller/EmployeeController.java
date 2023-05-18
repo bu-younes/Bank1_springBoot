@@ -52,7 +52,6 @@ public class EmployeeController {
 
 //update
 /*
-   @RequestMapping(value = "employee/update/{Id}", method = RequestMethod.PUT)
 
 
 
