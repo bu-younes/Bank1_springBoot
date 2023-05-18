@@ -54,7 +54,6 @@ public class EmployeeService {
             Employee employee = optionalEmployee.get();
             employee.setName(updatedEmployee.getName());
             employee.setGender(updatedEmployee.getGender());
-            employee.setDepartment(updatedEmployee.getDepartment());
 
 
     }*/
