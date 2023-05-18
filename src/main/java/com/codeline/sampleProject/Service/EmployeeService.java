@@ -69,7 +69,6 @@ public class EmployeeService {
 /*
     @GetMapping("employee/quer")
     @ResponseBody
-    public String getemployeeQueryString(@RequestParam String a,@RequestParam String b,@RequestParam String c,@RequestParam Double d) throws JsonProcessingException {
 
 
 */
