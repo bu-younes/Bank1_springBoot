@@ -39,7 +39,7 @@ public class EmployeeController {
 
       }
 
-    @RequestMapping(value = "employee/delete/{employeeId}", method = RequestMethod.DELETE)
+    @RequestMapping(value = "employee/delete/{Id}", method = RequestMethod.DELETE)
     public void deleteEmployee(@PathVariable Long employeeId) {
         employeeService.deleteEmployeeById(employeeId);
     }
