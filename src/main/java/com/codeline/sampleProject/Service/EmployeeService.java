@@ -73,7 +73,6 @@ public class EmployeeService {
         Employee employee = new Employee();
         employee.setName(a);
         employee.setGender(b);
-        employee.setDepartment(c);
 
 
 */
