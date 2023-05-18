@@ -46,16 +46,7 @@ public class AccountController {
     }
 
 
-    @GetMapping("account/quer")
-    @ResponseBody
-    public String getaccountQueryString(@RequestParam String a) throws JsonProcessingException {
-        Account accountt = new Account();
-        accountt.setBankName(a);
-        ObjectMapper mapper = new ObjectMapper();
-        String s = mapper.writeValueAsString(accountService.getAccountAsString(accountt));
-        System.out.print(s);
-        return s;
-    }
+
 
 
 

@@ -43,10 +43,7 @@ public class SalaryService {
         salaryRepository.deleteById(salaryId);
     }
 
-    public GetSalaryResponse getSalaryAsString(Salary salary) {
-        GetSalaryResponse salaryResponse= new GetSalaryResponse(salary.getHealthCareContribution(), salary.getAllowances(), salary.getBonus(), salary.getPerDiem()) ;
-        return salaryResponse;
-    }
+
 
 
 }

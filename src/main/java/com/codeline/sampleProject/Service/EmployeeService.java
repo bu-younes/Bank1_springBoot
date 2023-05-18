@@ -39,15 +39,14 @@ public class EmployeeService {
 
     }
 
+
     public void deleteEmployeeById(Long employeeId) {
         employeeRepository.deleteById(employeeId);
     }
 
 
 
-
-
-
+//update
 /*
     public GetEmployeeResponse updateEmployee(Long employeeId, Employee updatedEmployee) {
         Optional<Employee> optionalEmployee = employeeRepository.findById(employeeId);
@@ -67,6 +66,21 @@ public class EmployeeService {
 
 
 
+/*
+    @GetMapping("employee/quer")
+    @ResponseBody
+    public String getemployeeQueryString(@RequestParam String a,@RequestParam String b,@RequestParam String c,@RequestParam Double d) throws JsonProcessingException {
+        Employee employee = new Employee();
+        employee.setName(a);
+        employee.setGender(b);
+        employee.setDepartment(c);
+        employee.setSalary(d);
+        ObjectMapper mapper = new ObjectMapper();
+        String s = mapper.writeValueAsString(employeeService.getEmployeeAsString(employee));
+        System.out.print(s);
+        return s;
+    }
+
 
 
     public GetEmployeeResponse getEmployeeAsString(Employee employee) {
@@ -74,7 +88,7 @@ public class EmployeeService {
         return employeeResponse;
     }
 
-
+*/
 
 
 

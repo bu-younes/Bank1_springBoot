@@ -41,19 +41,7 @@ public class SalaryController {
 
 
 
-    @GetMapping("salary/quer")
-    @ResponseBody
-    public String getsalaryQueryString(@RequestParam Double a, @RequestParam Double b, @RequestParam Double c, @RequestParam Double d) throws JsonProcessingException {
-        Salary salary = new Salary();
-        salary.setHealthCareContribution(a);
-        salary.setAllowances(b);
-        salary.setBonus(c);
-        salary.setPerDiem(d);
-        ObjectMapper mapper = new ObjectMapper();
-        String s = mapper.writeValueAsString(salaryService.getSalaryAsString(salary));
-        System.out.print(s);
-        return s;
-    }
+
 
 
 

@@ -39,11 +39,10 @@ public class EmployeeController {
 
       }
 
-    @RequestMapping("employee/delete/{Id}")
-    public void deleteeemployee (@PathVariable Long Id) {
-        employeeService.deleteEmployeeById(Id);
+    @RequestMapping(value = "employee/delete/{employeeId}", method = RequestMethod.DELETE)
+    public void deleteEmployee(@PathVariable Long employeeId) {
+        employeeService.deleteEmployeeById(employeeId);
     }
-
 
 
 
@@ -57,29 +56,9 @@ public class EmployeeController {
        return employeeService.updateEmployee(employeeId, updatedEmployee);
     }
 
-*/
 
 
-
-
-
-
-
-
-    @GetMapping("employee/quer")
-    @ResponseBody
-    public String getemployeeQueryString(@RequestParam String a,@RequestParam String b,@RequestParam String c,@RequestParam Double d) throws JsonProcessingException {
-        Employee employee = new Employee();
-        employee.setName(a);
-        employee.setGender(b);
-        employee.setDepartment(c);
-        employee.setSalary(d);
-        ObjectMapper mapper = new ObjectMapper();
-        String s = mapper.writeValueAsString(employeeService.getEmployeeAsString(employee));
-        System.out.print(s);
-        return s;
-    }
-
+ */
     public void createEmployee(GetEmployeeRequestObject employeeRequestObject) {
 
         Employee employee = new Employee();
