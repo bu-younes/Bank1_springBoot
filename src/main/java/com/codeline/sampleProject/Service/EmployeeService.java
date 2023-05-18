@@ -72,7 +72,6 @@ public class EmployeeService {
     public String getemployeeQueryString(@RequestParam String a,@RequestParam String b,@RequestParam String c,@RequestParam Double d) throws JsonProcessingException {
         Employee employee = new Employee();
         employee.setName(a);
-        employee.setGender(b);
 
 
 */
