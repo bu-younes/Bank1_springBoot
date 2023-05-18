@@ -50,7 +50,6 @@ public class EmployeeController {
 
 
 
-//update
 
     public void createEmployee(GetEmployeeRequestObject employeeRequestObject) {
 
