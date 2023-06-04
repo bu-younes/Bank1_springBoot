@@ -17,20 +17,17 @@ public class MangerController {
     ManagerService managerService;
 
 
-    @RequestMapping("manager/create")
     @RequestMapping("create")
     public void saveManager (@RequestBody GetManagerRequestObject managerRequestObject) {
         createManager(managerRequestObject);
     }
 
-    @RequestMapping("manager/get")
     @RequestMapping("get")
     public List<Manager> getManager () {
         return managerService.getManager();
     }
 
     //Path Variable
-    @RequestMapping("manager/get/{managerId}")
     @RequestMapping("get/{managerId}")
     public GetManagerResponse createManager (@PathVariable Long managerId) {
         return managerService.getManagerById(managerId);
