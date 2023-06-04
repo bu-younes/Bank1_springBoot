@@ -13,5 +13,7 @@ public class GetAccountRequestObject {
 
     String bankName;
 
+    Integer accountNumber;
 
+    String bankBranch;
 }

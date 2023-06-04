@@ -1,12 +1,8 @@
 package com.codeline.sampleProject.Service;
 
 import com.codeline.sampleProject.Models.Account;
-import com.codeline.sampleProject.Models.Employee;
-import com.codeline.sampleProject.Models.Salary;
 import com.codeline.sampleProject.Repository.AccountRepository;
-import com.codeline.sampleProject.Repository.EmployeeRepository;
 import com.codeline.sampleProject.ResponseObjects.GetAccountResponse;
-import com.codeline.sampleProject.ResponseObjects.GetEmployeeResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,7 +11,9 @@ import java.util.Optional;
 
 @Service
 public class AccountService {
-
+    public List<Account> getAccount() {
+        return accountRepository.findAll();
+    }
     @Autowired
     AccountRepository accountRepository;
 
@@ -23,26 +21,29 @@ public class AccountService {
         accountRepository.save(account);
     }
 
-    public List<Account> getAccount() {
-        return accountRepository.findAll();
-    }
 
     public GetAccountResponse getAccountById(Long accountId) {
-        Optional<Account> optionalAccount =  accountRepository.findById(accountId);
-        if(!optionalAccount.isEmpty())
-        {
-            Account account =  optionalAccount.get();
-            GetAccountResponse accountResponse = new GetAccountResponse(account.getBankName());
+        Optional<Account> optionalAccount = accountRepository.findById(accountId);
+        if (!optionalAccount.isEmpty()) {
+            Account account = optionalAccount.get();
+            GetAccountResponse accountResponse = new GetAccountResponse(account.getBankName(), account.getAccountNumber(), account.getBankBranch());
             return accountResponse;
+        } else {
+
+            return null;
+
         }
-
-        return null;
-
     }
-    public Account getAccountByNumber(Integer accName){
-        return accountRepository.getAccountByAccountNumber(accName);
+    public Account getAccountByNumber(String accountNumber){
+        return accountRepository.getAccountByAccountNumber(accountNumber);
+    }
+    public Account getBankByName(String BankName){
+        return accountRepository.getBankByName(BankName);
     }
 
+    public List<Account> getBankBranch(String BankBranch){
+        return accountRepository.getBankByBranch(BankBranch);
+    }
     public void deleteAccountById(Long accountId) {
         accountRepository.deleteById(accountId);
     }

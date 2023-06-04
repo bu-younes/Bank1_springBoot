@@ -13,7 +13,10 @@ public class GetAccountResponse {
 
     String bankName;
 
+    Integer accountNumber;
 
-    public GetAccountResponse(String bankName, String accountNumber, String bankBranch, String swiftCode) {
+    String bankBranch;
+
+    public GetAccountResponse(String success, String bankName, String accountNumber) {
     }
 }

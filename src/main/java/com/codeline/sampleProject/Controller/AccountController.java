@@ -73,7 +73,7 @@ public class AccountController {
     }
 
     @RequestMapping(value = "getByAccountNumber")
-    public Account getAccountByNumber(@RequestParam Integer accountNumber) {
+    public Account getAccountByNumber(@RequestParam String accountNumber) {
         return accountService.getAccountByNumber(accountNumber);
     }
 }
