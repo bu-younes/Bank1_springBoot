@@ -17,25 +17,29 @@ import java.util.Date;
 import java.util.List;
 
 @RestController
+@RequestMapping(value = "account")
 public class AccountController {
 
     @Autowired
     AccountService accountService;
 
-    @RequestMapping("account/create")
-    public void saveAccount (@RequestBody GetAccountRequestObject accountRequestObject) {
+    @RequestMapping("create")
+    public void saveAccount(@RequestBody GetAccountRequestObject accountRequestObject) {
         createAccount(accountRequestObject);
     }
 
 
-    @RequestMapping("account/get")
-    public List<Account> getAccount () {
+    @RequestMapping("get")
+    public List<Account> getAccount() {
+
         return accountService.getAccount();
     }
 
     //Path Variable
-    @RequestMapping("account/get/{accountId}")
-    public GetAccountResponse createAccount (@PathVariable Long accountId) {
+
+
+        @RequestMapping("get/{accountId}")
+        public GetAccountResponse createAccount(@PathVariable Long accountId) {
         return accountService.getAccountById(accountId);
 
     }
@@ -65,5 +69,11 @@ public class AccountController {
         account.setCreatedDate(new Date());
         account.setIsActive(true);
         accountService.saveAccount(account);
+
+    }
+
+    @RequestMapping(value = "getByDepartment")
+    public List<Account> getAllAccountByDepartment(@RequestParam String departmentName) {
+        return AccountService.getAccountByDept(departmentName);
     }
 }
