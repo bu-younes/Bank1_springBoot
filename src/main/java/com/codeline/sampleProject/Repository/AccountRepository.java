@@ -9,9 +9,9 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface AccountRepository extends JpaRepository<Account, Long> {
 
-    @Query("SELECT * FROM Account WHERE accountNumber=:accountNumber")
+    @Query("SELECT e FROM Account e WHERE e.accountNumber=:accountNumber")
     Account getAccountByAccountNumber(@Param("accountNumber") Integer accountNumber);
 
-    @Query("SELECT * FROM Account WHERE accountHolderName=:accountHolder")
+    @Query("SELECT e FROM Account e WHERE e.accountHolderName=:accountHolder")
     Account getAccountByAccountHolderName(@Param("accountHolder") String accountHolderName);
 }

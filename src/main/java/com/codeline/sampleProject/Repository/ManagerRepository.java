@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface ManagerRepository  extends JpaRepository<Manager, Long> {
 
-    @Query("SELECT * FROM Manager WHERE teamName=:nameOfTeam")
+    @Query("SELECT e FROM Manager e WHERE e.teamName=:nameOfTeam")
     Manager getManagerByTeamName(@Param("nameOfTeam") String teamName);
 
 

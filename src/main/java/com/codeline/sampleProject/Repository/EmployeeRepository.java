@@ -11,7 +11,7 @@ import java.util.List;
 @Repository
 public interface EmployeeRepository extends JpaRepository<Employee, Long> {
 
-    @Query("SELECT * FROM Employee WHERE department=:nameOfDepartment")
+    @Query("SELECT e FROM Employee e WHERE e.department=:nameOfDepartment")
     List<Employee> getEmployeeByDepartment(@Param("nameOfDepartment") String dept);
 }
 
