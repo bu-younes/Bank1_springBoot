@@ -1,4 +1,14 @@
 package com.codeline.sampleProject.Repository;
 
-public interface ManagerRepository {
+import com.codeline.sampleProject.Models.Manager;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
+
+public interface ManagerRepository  extends JpaRepository<Manager, Long> {
+
+    @Query("SELECT * FROM Manager WHERE teamName=:nameOfTeam")
+    Manager getManagerByTeamName(@Param("nameOfTeam") String teamName);
+
+
 }
