@@ -72,8 +72,8 @@ public class AccountController {
 
     }
 
-    @RequestMapping(value = "getByDepartment")
-    public List<Account> getAllAccountByDepartment(@RequestParam String departmentName) {
-        return AccountService.getAccountByDept(departmentName);
+    @RequestMapping(value = "getByAccountNumber")
+    public Account getAccountByNumber(@RequestParam Integer accountNumber) {
+        return accountService.getAccountByNumber(accountNumber);
     }
 }

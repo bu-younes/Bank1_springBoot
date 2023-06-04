@@ -39,6 +39,9 @@ public class AccountService {
         return null;
 
     }
+    public Account getAccountByNumber(Integer accName){
+        return accountRepository.getAccountByAccountNumber(accName);
+    }
 
     public void deleteAccountById(Long accountId) {
         accountRepository.deleteById(accountId);

@@ -1,6 +1,8 @@
 package com.codeline.sampleProject.Controller;
 
 import com.codeline.sampleProject.Models.Manager;
+import com.codeline.sampleProject.RequestObjects.GetEmployeeProject.GetManagerRequestObject;
+import com.codeline.sampleProject.ResponseObjects.GetManagerResponse;
 import com.codeline.sampleProject.Service.ManagerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -33,9 +35,13 @@ public class MangerController {
         return managerService.getManagerById(managerId);
     }
     public void createManager(GetManagerRequestObject managerRequestObject) {
+
         Manager manager = new Manager();
+
         manager.setDepartment(managerRequestObject.getDepartment());
         manager.setTeamName("The Moon");
+
+
         manager.setCreatedDate(new Date());
         manager.setIsActive(true);
         managerService.saveManager(manager);
